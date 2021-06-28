@@ -1,0 +1,281 @@
+--Made by : https://v3rmillion.net/member.php?action=profile&uid=507120
+--Go vouch release thread : https://v3rmillion.net/showthread.php?tid=1040650
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Maxgat5/UiLib/main/lua')))()
+
+local w = library:CreateWindow("RBW2 Park-Modifier") -- Creates the window
+
+local w1 = library:CreateWindow("Aimbot") -- Creates the window
+
+local w2 = library:CreateWindow("Extra")
+
+local b2 = w2:CreateFolder("Glitch Players") 
+
+local rim = w2:CreateFolder("Rim Color Changer") 
+
+local b1 = w1:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
+
+local b = w:CreateFolder("Custom Stats") -- Creates the folder(U will put here your buttons,etc)
+
+
+local Shit = 0
+local localplayer = game:GetService("Players").LocalPlayer
+function ClosestPart()
+    local dist = math.huge
+    local target = nil
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+        if v.Name == "_Hoop2" or v.Name == "_Hoop1" then
+            local magnitude = (v.Goal.Position - localplayer.Character.Head.Position).magnitude
+            if magnitude < dist then
+                dist = magnitude
+                target = v
+            end
+        end
+    end
+    return target
+end
+
+if game.PlaceId == 856967976 then
+local mt = getrawmetatable(game)
+local namecall = mt.__namecall
+setreadonly(mt,false)
+mt.__namecall = function(self,...)
+    local args = {...}
+    local method = getnamecallmethod()
+    if tostring(self) == "shoot" and method == "FireServer" then
+        if AutoShit == true then
+            args[1] = ClosestPart()
+            args[2] = tonumber(Shit)
+            args[3] = true
+            return self.FireServer(self, unpack(args))
+        end
+    end
+    return namecall(self,...)
+end
+if game.PlaceId == 593223204 then elseif game.PlaceId == 591582661 then
+local mt = getrawmetatable(game)
+local namecall = mt.__namecall
+setreadonly(mt,false)
+mt.__namecall = function(self,...)
+    local args = {...}
+    local method = getnamecallmethod()
+    if tostring(self) == "shoot" and method == "FireServer" then
+        if AutoShit == true then
+            args[1] = ClosestPart()
+            args[2] = tonumber(Shit)
+            args[3] = true
+            return self.FireServer(self, unpack(args))
+        end
+    end
+    return namecall(self,...)
+end
+end
+end
+
+
+b1:Toggle("Aimbot",function(bool)
+    shared.toggle = bool
+    AutoShit = bool
+end)
+
+b1:Box("Percent","number",function(value)
+    Shit = value
+end)
+
+
+b:Box("2 Pointer","number",function(value) -- "number" or "string"
+    pointer = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v["2pointer"] = tonumber(pointer);
+    end
+end
+end)
+b:Box("3 Pointer","number",function(value) -- "number" or "string"
+    pointerr = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        
+        v["3pointer"] = tonumber(pointerr);
+    end
+end
+end)
+b:Box("Ball Speed","number",function(value) -- "number" or "string"
+    ba = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.ballspeed = tonumber(ba);
+
+    end
+end
+end)
+b:Box("Defense","number",function(value) -- "number" or "string"
+    de = value
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.defense = tonumber(de);
+    end
+end
+end)
+b:Box("Dunk","number",function(value) -- "number" or "string"
+    du = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.dunk = tonumber(du)
+    end
+end
+end)
+b:Box("Handles","number",function(value) -- "number" or "string"
+    ha = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.handles = tonumber(ha)
+    end
+end
+end)
+b:Box("Passing","number",function(value) -- "number" or "string"
+    pa = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.passing = tonumber(pa)
+    end
+end
+end)
+b:Box("Shot Contest","number",function(value) -- "number" or "string"
+    sh = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.shotcontest = tonumber(sh)
+    end
+end
+end)
+
+b:Box("Moving Shot","number",function(value) -- "number" or "string"
+    mo = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.movingshot = tonumber(mo)
+    end
+end
+end)
+b:Box("Speed","number",function(value) -- "number" or "string"
+    sp = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.speed = tonumber(sp)
+    end
+end
+end)
+b:Box("Stamina","number",function(value) -- "number" or "string"
+    st = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.stamina = tonumber(st)
+    end
+end
+end)
+b:Box("Free Throw","number",function(value) -- "number" or "string"
+    fr = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v. freethrow = tonumber(fr)
+    end
+end
+end)
+b:Box("Layup","number",function(value) -- "number" or "string"
+    la = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v.layup = tonumber(la)
+    end
+end
+end)
+b:Box("Post Scorer","number",function(value) -- "number" or "string"
+    po = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v. postscorer = tonumber(po)
+    end
+end
+end)
+b:Box("Strength","number",function(value) -- "number" or "string"
+    st = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v. strength = tonumber(st)
+    end
+end
+end)
+b:Box("Jump","number",function(value) -- "number" or "string"
+    ju = value
+    
+    for i,v in pairs(getgc(true)) do
+    if type(v) == "table" and rawget(v, "handles") then
+        v. jump = tonumber(ju)
+    end
+end
+end)
+
+
+rim:ColorPicker("ColorPicker",Color3.fromRGB(213, 115, 61),function(color) --Default color
+    game.Workspace._Hoop1.RimModel.Color = color
+end)
+
+
+
+local player;
+    local Players = {}
+    for i,v in pairs(game.Players:GetChildren()) do
+        Players[i] = v.Name
+    end
+    
+    b2:Dropdown("Choose Player",Players,true,function(mob)
+        player = mob
+    end)
+    
+    b2:Toggle("Loop Glitch Player",function(bool)
+        LoopGlitch = bool
+    end)
+    
+    b2:Button("Glitch Player",function()
+        local name = player
+            local args = {
+                [1] = game:GetService("Players")[name].Character.BallJoint,
+                [2] = false,
+                [3] = "R"
+            }
+            game:GetService("ReplicatedStorage").gameplay.ball.shotpos:FireServer(unpack(args))
+    end)
+    
+    
+    
+
+while wait() do
+        if LoopGlitch == true then
+            local name = player
+            local args = {
+                [1] = game:GetService("Players")[name].Character.BallJoint,
+                [2] = false,
+                [3] = "R"
+            }
+            game:GetService("ReplicatedStorage").gameplay.ball.shotpos:FireServer(unpack(args))
+        end
+    end
+
+ rim:ColorPicker("ColorPicker",Color3.fromRGB(213, 115, 61),function(color) --Default color
+    game.Workspace._Hoop1.RimModel.Color = color
+end)
